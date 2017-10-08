@@ -1,0 +1,72 @@
+* {
+  box-sizing: border-box;
+}
+
+/* ======================================================================
+                        MOBILE (386px mockup +-)
+========================================================================= */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+video {
+  width: 100%;
+}
+
+.text-container {
+  max-width: 88%;
+
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 0.9em;
+  line-height: 1.6;
+
+  margin-top: 1em;
+}
+
+p:last-child {
+  margin-bottom: 1em;
+}
+
+/* ======================================================================
+                        TABLET-DESKTOP (1068px mockup +-)
+========================================================================= */
+
+@media (min-width: 768px) {
+
+  .text-container {
+    font-size: 0.95em;
+    line-height: 2.2;
+  }
+
+  video {
+    max-width: 70%;
+    margin-top: 1.5em;
+  }
+
+  p {
+    max-width: 750px;
+  }
+  p:last-child {
+    margin-bottom: 5%;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**/
