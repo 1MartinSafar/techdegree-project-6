@@ -13,8 +13,14 @@
   align-items: center;
 }
 
-video {
-  width: 100%;
+.video {
+  /*width: 100%;*/
+  /*align-self: center;
+  justify-content: center;
+  align-items: center;
+  width:80%;
+	max-width: 640px;*/
+	/*margin: 0 auto;*/
 }
 
 .text-container {
@@ -43,9 +49,11 @@ p:last-child {
     line-height: 2.2;
   }
 
-  video {
-    max-width: 70%;
-    margin-top: 1.5em;
+  .video {
+    /*max-width: 70%;
+    margin-top: 1.5em;*/
+
+
   }
 
   p {

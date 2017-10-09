@@ -4,19 +4,27 @@
     <meta charset="utf-8">
     <title>Interactive Video Player</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Normalize.css -->
     <link rel="stylesheet" href="normalize.css">
+    <!-- MediaElement.js CSS -->
+    <link href="http://cdn.jsdelivr.net/npm/mediaelement@4.2.6/build/mediaelementplayer.min.css" rel="stylesheet">
+    <!-- My CSS -->
     <link rel="stylesheet" href="styles.css">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Lato|Montserrat:500" rel="stylesheet">
   </head>
+    <link rel="stylesheet" href="mejs-styles.css">
   <body>
 
     <div class="container">
 
-      <video controls>
+      <!-- <div class="video"> -->
+      <!-- <video width="852" height="480"> -->
+        <video width="852" height="480" style="width:100%; height:100%;">
         <source src="video/video.mp4" type="video/mp4">
         <source src="video/video.ogg" type="video/ogg">
       </video>
+      <!-- </div> -->
 
       <div class="text-container">
         <p>
@@ -59,13 +67,15 @@
 
   <!-- jQuery -->
   <script
-    src="https://code.jquery.com/jquery-3.2.1.min.js"
-    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-    crossorigin="anonymous">
+  src="http://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
   </script>
-  <!--  -->
-  <!-- <script src="lightbox/js/lightbox.min.js"></script> -->
-  <!-- JavaScript File -->
+
+  <!-- MediaElement.js CDN test -->
+  <script src="http://cdn.jsdelivr.net/npm/mediaelement@4.2.6/build/mediaelement-and-player.min.js"></script>
+
+  <!-- JavaScript - My File -->
   <script src="scripts.js"></script>
 
   </body>
