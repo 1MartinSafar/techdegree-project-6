@@ -1,6 +1,7 @@
 $('video').mediaelementplayer({
 
-  features: ['playpause', 'tracks','progress']
+  // features: ['playpause', 'current', 'tracks','progress', 'fullscreen']
+  features: ['playpause', 'current', 'progress', 'duration', 'volume', 'fullscreen']
 
   // features: ['playpause', 'tracks','progress'],
   // startLanguage: 'en'

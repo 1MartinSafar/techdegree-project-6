@@ -38,6 +38,35 @@ p:last-child {
   margin-bottom: 1em;
 }
 
+
+.videoContainer .mejs-container.svg.mejs-video,
+.videoContainer .mejs-overlay.mejs-layer.mejs-overlay-play,
+.videoContainer .mejs-poster.mejs-layer,
+.videoContainer .mejs-captions-layer.mejs-layer,
+.videoContainer video{
+   /*margin: 0 !important;*/
+   /*text-align: center;*/
+   /*width: 100% !important;*/
+   /*width: 852px !important;*/
+   /*height: auto !important;*/
+ }
+/*.videoContainer{
+   padding-bottom: 75%;
+   position: relative;
+  }*/
+/*.videoContainer .mejs-layer, .videoContainer .mejs-container,
+.videoContainer .mejs-overlay {
+  position: absolute !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: auto !important;
+}*/
+
+
+
+
 /* ======================================================================
                         TABLET-DESKTOP (1068px mockup +-)
 ========================================================================= */
@@ -62,6 +91,32 @@ p:last-child {
   p:last-child {
     margin-bottom: 5%;
   }
+
+
+  /*.videoContainer .mejs-container.svg.mejs-video,
+  .videoContainer .mejs-overlay.mejs-layer.mejs-overlay-play,
+  .videoContainer .mejs-poster.mejs-layer,
+  .videoContainer .mejs-captions-layer.mejs-layer,
+  .videoContainer video{
+     margin: 0 !important;
+     text-align: center;
+     width: 100% !important;
+     width: 852px !important;
+     height: auto !important;
+   }*/
+  /*.videoContainer{
+     padding-bottom: 75%;
+     position: relative;
+    }*/
+  /*.videoContainer .mejs-layer, .videoContainer .mejs-container,
+  .videoContainer .mejs-overlay {
+    position: absolute !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: auto !important;
+  }*/
 
 }
 
