@@ -73,16 +73,20 @@ p:last-child {
 
 @media (min-width: 768px) {
 
+  body {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .container {
+    margin-top: 1.6em;
+    margin-left: 7.5em;
+    margin-right: 7.5em;
+  }
+
   .text-container {
     font-size: 0.95em;
     line-height: 2.2;
-  }
-
-  .video {
-    /*max-width: 70%;
-    margin-top: 1.5em;*/
-
-
   }
 
   p {
