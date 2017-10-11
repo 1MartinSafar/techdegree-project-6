@@ -16,10 +16,11 @@ const t15 = document.querySelector('#t15');
 const t16 = document.querySelector('#t16');
 
 const spans = document.querySelectorAll('.transcript span');
+const textDiv = document.querySelector(".text-container");
 
 const times = [
   0.240, // 0
-  4.130,  // was 0
+  4.130,  // previously 0
   7.535,
   11.270,
   13.960,
@@ -34,7 +35,7 @@ const times = [
   49.270,
   53.760,
   57.780,
-  60.150 // 16  // was 15
+  60.150 // 16  // previously 15
 ]
 
 const t = [
@@ -56,14 +57,14 @@ const t = [
   t16
 ]
 
-const textDiv = document.querySelector(".text-container");
-
+// A FUCTION to reset the color of the transscript back to black
 function reset() {
   for (let i = 0; i < spans.length; i++) {
     spans[i].style.color = "black";
   }
 }
 
+// A FUNCTION FOR sync HIGHLIGHTING the text
 function hightlight(mediaElement, times, t) {
   for (let i = 1; i <= 16; i++) {
     let current = mediaElement.currentTime;
@@ -83,37 +84,59 @@ function hightlight(mediaElement, times, t) {
   }
 }
 
+// When the user clicks on any sentence in the transcript
+// the video player jumps to the appropriate time in the video.
+function jump(mediaElement, event, times, t) {
+  if (event.target.tagName == 'SPAN') {
+    for (let i = 0; i <= 15; i++) {
+      let current = mediaElement.currentTime;
+      // console.log("CLICKED ON SPAN: " + i);
+      // console.log("CURRENT: " + current);
+      // console.log("TIMES[i] = " + times[i]);
+      // console.log("ORANGE TO TEXT: " + i);
+
+      if (event.target == t1) {
+        mediaElement.currentTime = 0.240;
+      }
+
+      else if (event.target == t[i]) {
+        mediaElement.currentTime = times[i];
+        break;
+      }
+    }
+  }
+}
+
 $('video').mediaelementplayer({
   features: ['playpause', 'current', 'progress', 'duration', 'volume', 'fullscreen'],
 
   success: function(mediaElement, domObject) {
 
     textDiv.addEventListener('click', (event) => {
-      // 1. When the user clicks on any sentence in the transcript
+      // When the user clicks on any sentence in the transcript
       // the video player jumps to the appropriate time in the video.
-      // click a sentence => set .currentTime to the start of it
+      jump(mediaElement, event, times, t);
 
-      // let current = mediaElement.currentTime;
+      // OUT OF FUNCTION VERSION
 
-      if (event.target.tagName == 'SPAN') {
-        // mediaElement.currentTime = 5;
-        for (let i = 0; i <= 15; i++) {
-          let current = mediaElement.currentTime;
-          console.log("CLICKED ON SPAN: " + i);
-          console.log("CURRENT: " + current);
-          console.log("TIMES[i] = " + times[i]);
-          // console.log("ORANGE TO TEXT: " + i);
-
-          if (event.target == t1) {
-            mediaElement.currentTime = 0.240;
-          }
-
-          // if (event.target.className == t[i]) {
-          if (event.target == t[i]) {
-            mediaElement.currentTime = times[i];
-          }
-        }
-      }
+      // if (event.target.tagName == 'SPAN') {
+      //   // mediaElement.currentTime = 5;
+      //   for (let i = 0; i <= 15; i++) {
+      //     let current = mediaElement.currentTime;
+      //     // console.log("CLICKED ON SPAN: " + i);
+      //     // console.log("CURRENT: " + current);
+      //     // console.log("TIMES[i] = " + times[i]);
+      //     // console.log("ORANGE TO TEXT: " + i);
+      //
+      //     if (event.target == t1) {
+      //       mediaElement.currentTime = 0.240;
+      //     }
+      //
+      //     else if (event.target == t[i]) {
+      //       mediaElement.currentTime = times[i];
+      //     }
+      //   }
+      // }
     });
 
     mediaElement.addEventListener('timeupdate', function() {
@@ -122,7 +145,7 @@ $('video').mediaelementplayer({
         // A FUNCTION FOR sync HIGHLIGHTING the text
         hightlight(mediaElement, times, t);
 
-        // USE THIS -- OR THE HIGHLIGHT FUNCTION
+        // OUT OF FUNCTION VERSION
 
         // for (let i = 0; i <= 15; i++) {
         //   let current = mediaElement.currentTime;
