@@ -19,8 +19,8 @@ const spans = document.querySelectorAll('.transcript span');
 const textDiv = document.querySelector(".text-container");
 
 const times = [
-  0.240, // 0
-  4.130,  // previously 0
+  0.240,
+  4.130,
   7.535,
   11.270,
   13.960,
@@ -35,7 +35,7 @@ const times = [
   49.270,
   53.760,
   57.780,
-  60.150 // 16  // previously 15
+  60.150
 ]
 
 const t = [
@@ -68,11 +68,9 @@ function reset() {
 function hightlight(mediaElement, times, t) {
   for (let i = 1; i <= 16; i++) {
     let current = mediaElement.currentTime;
-
     if (current < 0.240) {
       reset();
     }
-
     else if (current < times[i]) {
       reset();
       // console.log("CURRENT: " + current);
@@ -94,11 +92,9 @@ function jump(mediaElement, event, times, t) {
       // console.log("CURRENT: " + current);
       // console.log("TIMES[i] = " + times[i]);
       // console.log("ORANGE TO TEXT: " + i);
-
       if (event.target == t1) {
         mediaElement.currentTime = 0.240;
       }
-
       else if (event.target == t[i]) {
         mediaElement.currentTime = times[i];
         break;
@@ -113,139 +109,18 @@ $('video').mediaelementplayer({
   success: function(mediaElement, domObject) {
 
     textDiv.addEventListener('click', (event) => {
-      // When the user clicks on any sentence in the transcript
-      // the video player jumps to the appropriate time in the video.
       jump(mediaElement, event, times, t);
-
-      // OUT OF FUNCTION VERSION
-
-      // if (event.target.tagName == 'SPAN') {
-      //   // mediaElement.currentTime = 5;
-      //   for (let i = 0; i <= 15; i++) {
-      //     let current = mediaElement.currentTime;
-      //     // console.log("CLICKED ON SPAN: " + i);
-      //     // console.log("CURRENT: " + current);
-      //     // console.log("TIMES[i] = " + times[i]);
-      //     // console.log("ORANGE TO TEXT: " + i);
-      //
-      //     if (event.target == t1) {
-      //       mediaElement.currentTime = 0.240;
-      //     }
-      //
-      //     else if (event.target == t[i]) {
-      //       mediaElement.currentTime = times[i];
-      //     }
-      //   }
-      // }
     });
 
     mediaElement.addEventListener('timeupdate', function() {
         let current = mediaElement.currentTime;
 
-        // A FUNCTION FOR sync HIGHLIGHTING the text
         hightlight(mediaElement, times, t);
-
-        // OUT OF FUNCTION VERSION
-
-        // for (let i = 0; i <= 15; i++) {
-        //   let current = mediaElement.currentTime;
-        //
-        //   if (current < 0.240) {
-        //     reset();
-        //     break;
-        //   }
-        //
-        //   else if (current < times[i]) {
-        //     reset();
-        //     console.log("CURRENT: " + current);
-        //     console.log("TIMES[i] = " + times[i]);
-        //     console.log("ORANGE TO TEXT: " + i);
-        //     t[i].style.color = "orange";
-        //     break;
-        //   }
-        //
-        // }
-
-        // THE FIRST PROTOTYPE :D
-
-        // if (current < 0.240) {
-        //   reset();
-        // }
-        // else if (current < 4.130) {
-        //   reset();
-        //   t1.style.color = "orange";
-        // }
-        // else if (current < 7.535) {
-        //   reset();
-        //   t2.style.color = "orange";
-        // }
-        // else if (current < 11.270) {
-        //   reset();
-        //   t3.style.color = "orange";
-        // }
-        // else if (current < 13.960) {
-        //   reset();
-        //   t4.style.color = "orange";
-        // }
-        // else if (current < 17.940) {
-        //   reset();
-        //   t5.style.color = "orange";
-        // }
-        // else if (current < 22.370) {
-        //   reset();
-        //   t6.style.color = "orange";
-        // }
-        // else if (current < 26.880) {
-        //   reset();
-        //   t7.style.color = "orange";
-        // }
-        // else if (current < 32.100) {
-        //   reset();
-        //   t8.style.color = "orange";
-        // }
-        // else if (current < 34.730) {
-        //   reset();
-        //   t9.style.color = "orange";
-        // }
-        // else if (current < 39.430) {
-        //   reset();
-        //   t10.style.color = "orange";
-        // }
-        // else if (current < 42.350) {
-        //   reset();
-        //   t11.style.color = "orange";
-        // }
-        // else if (current < 46.300) {
-        //   reset();
-        //   t12.style.color = "orange";
-        // }
-        // else if (current < 49.270) {
-        //   reset();
-        //   t13.style.color = "orange";
-        // }
-        // else if (current < 53.760) {
-        //   reset();
-        //   t14.style.color = "orange";
-        // }
-        // else if (current < 57.780) {
-        //   reset();
-        //   t15.style.color = "orange";
-        // }
-        // else if (current < 60.150) {
-        //   reset();
-        //   t16.style.color = "orange";
-        // }
         // LEAVING IT SO THAT THE LAST HIGHLIGHTING STAYS - CONVENIENT
-        // FOR THE READERS KIND OF
+        // FOR THE READERS I THINK
         }, false);
     }
 });
-
-
-
-
-
-
 
 
 
