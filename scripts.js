@@ -18,8 +18,8 @@ const t16 = document.querySelector('#t16');
 const spans = document.querySelectorAll('.transcript span');
 
 const times = [
-  // 0.240,
-  4.130,  // 1
+  0.240, // 0
+  4.130,  // was 0
   7.535,
   11.270,
   13.960,
@@ -34,7 +34,7 @@ const times = [
   49.270,
   53.760,
   57.780,
-  60.150 // 16
+  60.150 // 16  // was 15
 ]
 
 const t = [
@@ -56,6 +56,8 @@ const t = [
   t16
 ]
 
+const textDiv = document.querySelector(".text-container");
+
 function reset() {
   for (let i = 0; i < spans.length; i++) {
     spans[i].style.color = "black";
@@ -63,7 +65,7 @@ function reset() {
 }
 
 function hightlight(mediaElement, times, t) {
-  for (let i = 0; i <= 15; i++) {
+  for (let i = 1; i <= 16; i++) {
     let current = mediaElement.currentTime;
 
     if (current < 0.240) {
@@ -72,10 +74,10 @@ function hightlight(mediaElement, times, t) {
 
     else if (current < times[i]) {
       reset();
-      console.log("CURRENT: " + current);
-      console.log("TIMES[i] = " + times[i]);
-      console.log("ORANGE TO TEXT: " + i);
-      t[i].style.color = "orange";
+      // console.log("CURRENT: " + current);
+      // console.log("TIMES[i] = " + times[i]);
+      // console.log("ORANGE TO TEXT: " + i);
+      t[i-1].style.color = "orange";
       break;
     }
   }
@@ -85,6 +87,34 @@ $('video').mediaelementplayer({
   features: ['playpause', 'current', 'progress', 'duration', 'volume', 'fullscreen'],
 
   success: function(mediaElement, domObject) {
+
+    textDiv.addEventListener('click', (event) => {
+      // 1. When the user clicks on any sentence in the transcript
+      // the video player jumps to the appropriate time in the video.
+      // click a sentence => set .currentTime to the start of it
+
+      // let current = mediaElement.currentTime;
+
+      if (event.target.tagName == 'SPAN') {
+        // mediaElement.currentTime = 5;
+        for (let i = 0; i <= 15; i++) {
+          let current = mediaElement.currentTime;
+          console.log("CLICKED ON SPAN: " + i);
+          console.log("CURRENT: " + current);
+          console.log("TIMES[i] = " + times[i]);
+          // console.log("ORANGE TO TEXT: " + i);
+
+          if (event.target == t1) {
+            mediaElement.currentTime = 0.240;
+          }
+
+          // if (event.target.className == t[i]) {
+          if (event.target == t[i]) {
+            mediaElement.currentTime = times[i];
+          }
+        }
+      }
+    });
 
     mediaElement.addEventListener('timeupdate', function() {
         let current = mediaElement.currentTime;
