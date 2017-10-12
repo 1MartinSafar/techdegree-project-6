@@ -86,7 +86,6 @@ function hightlight(mediaElement, times, t) {
 function jump(mediaElement, event, times, t) {
   if (event.target.tagName == 'SPAN') {
     for (let i = 0; i <= 15; i++) {
-      let current = mediaElement.currentTime;
       if (event.target == t1) {
         mediaElement.currentTime = 0.240;
       }
