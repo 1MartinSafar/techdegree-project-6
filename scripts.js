@@ -16,7 +16,7 @@ const t15 = document.querySelector('#t15');
 const t16 = document.querySelector('#t16');
 
 const spans = document.querySelectorAll('.transcript span');
-const textDiv = document.querySelector(".text-container");
+const textDiv = document.querySelector('.text-container');
 
 const times = [
   0.240,
@@ -36,7 +36,7 @@ const times = [
   53.760,
   57.780,
   60.150
-]
+];
 
 const t = [
   t1,
@@ -55,7 +55,7 @@ const t = [
   t14,
   t15,
   t16
-]
+];
 
 // A FUCTION to reset the color of the transscript back to black
 function reset() {
@@ -65,6 +65,8 @@ function reset() {
 }
 
 // A FUNCTION FOR sync HIGHLIGHTING the text
+// Leaving it so that the last highlighting stays - convenient
+// for the readers I think
 function hightlight(mediaElement, times, t) {
   for (let i = 1; i <= 16; i++) {
     let current = mediaElement.currentTime;
@@ -108,17 +110,13 @@ $('video').mediaelementplayer({
 
   success: function(mediaElement, domObject) {
 
-    textDiv.addEventListener('click', (event) => {
+    textDiv.addEventListener('click', function(event) {
       jump(mediaElement, event, times, t);
     });
 
     mediaElement.addEventListener('timeupdate', function() {
-        let current = mediaElement.currentTime;
-
-        hightlight(mediaElement, times, t);
-        // LEAVING IT SO THAT THE LAST HIGHLIGHTING STAYS - CONVENIENT
-        // FOR THE READERS I THINK
-        }, false);
+      hightlight(mediaElement, times, t);
+        });
     }
 });
 
