@@ -57,7 +57,7 @@ const t = [
   t16
 ];
 
-// A FUCTION to reset the color of the transscript back to black
+// A FUCTION to reset the color of the transcript back to black
 function reset() {
   for (let i = 0; i < spans.length; i++) {
     spans[i].style.color = "black";
@@ -75,9 +75,6 @@ function hightlight(mediaElement, times, t) {
     }
     else if (current < times[i]) {
       reset();
-      // console.log("CURRENT: " + current);
-      // console.log("TIMES[i] = " + times[i]);
-      // console.log("ORANGE TO TEXT: " + i);
       t[i-1].style.color = "orange";
       break;
     }
@@ -90,10 +87,6 @@ function jump(mediaElement, event, times, t) {
   if (event.target.tagName == 'SPAN') {
     for (let i = 0; i <= 15; i++) {
       let current = mediaElement.currentTime;
-      // console.log("CLICKED ON SPAN: " + i);
-      // console.log("CURRENT: " + current);
-      // console.log("TIMES[i] = " + times[i]);
-      // console.log("ORANGE TO TEXT: " + i);
       if (event.target == t1) {
         mediaElement.currentTime = 0.240;
       }
