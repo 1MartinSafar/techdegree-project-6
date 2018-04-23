@@ -83,13 +83,13 @@ function hightlight(mediaElement, times, t) {
 
 // When the user clicks on any sentence in the transcript
 // the video player jumps to the appropriate time in the video.
-function jump(mediaElement, event, times, t) {
-  if (event.target.tagName == 'SPAN') {
+function jump(mediaElement, e, times, t) {
+  if (e.target.tagName === 'SPAN') {
     for (let i = 0; i <= 15; i++) {
-      if (event.target == t1) {
+      if (e.target === t1) {
         mediaElement.currentTime = 0.240;
       }
-      else if (event.target == t[i]) {
+      else if (e.target === t[i]) {
         mediaElement.currentTime = times[i];
         break;
       }
@@ -102,8 +102,8 @@ $('video').mediaelementplayer({
 
   success: function(mediaElement, domObject) {
 
-    textDiv.addEventListener('click', function(event) {
-      jump(mediaElement, event, times, t);
+    textDiv.addEventListener('click', function(e) {
+      jump(mediaElement, e, times, t);
     });
 
     mediaElement.addEventListener('timeupdate', function() {
